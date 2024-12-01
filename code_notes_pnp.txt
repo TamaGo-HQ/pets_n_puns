@@ -1,0 +1,107 @@
+Make DB file ------------------------
+
+In Python, a dictionary is a data structure 
+that stores data in key-value pairs.
+
+! key features
+1. Key-Value Pairs: Each entry in a dictionary consists 
+of a unique key and its corresponding value.
+2. Unordered: Dictionaries do not maintain the order of 
+items prior to Python 3.7. Starting with Python 3.7, they 
+preserve insertion order.
+3. Mutable: You can change the dictionary's content by 
+adding, modifying, or deleting key-value pairs.
+4. Keys Must Be Immutable: Keys must be of an immutable 
+data type like strings, numbers, or tuples. Values can 
+be of any type.
+
+! what are immutable data types
+- Immutable data types are data types whose values cannot 
+be modified after they are created. If you try to change 
+their value, you’ll essentially create a new object 
+instead of modifying the existing one.
+- Examples of Immutable Data Types in Python:
+    Numbers: int, float, complex
+    Strings: str
+    Tuples: tuple
+    Frozen sets: frozenset
+    Booleans: bool
+- Examples of Mutable Data Types in Python:
+    Lists: list
+    Dictionaries: dict
+    Sets: set
+
+In the mutability.py script, 
+The original "Melek" string remains unchanged. Instead, 
+a new string "Melek Chaabene" is created, and name points 
+to the new object.
+When you reassign an immutable object (like the string 
+"Melek"), the original object isn’t changed—it simply 
+becomes unreachable if no other variable is referencing it.
+This process is managed by Python’s Garbage Collector (GC).
+
+Before Reassignment:
++------------+
+| "Melek"    |  <---- name
++------------+
+
+After Reassignment:
++------------+       +-----------------+
+| "Melek"    |       | "Melek Chaabene" |  <---- name
++------------+       +-----------------+
+(No references)       (New reference)
+
+Since "Melek" has no references, it becomes eligible 
+for garbage collection.
+
+! with ... as syntax
+The with ... as syntax is used for *context management*
+in Python. It allows you to work with resources like files, network 
+connections, or database connections in a safe and 
+efficient way.
+- The key advantage of using with ... as is that it ensures 
+    the proper handling of the resource (like automatically 
+    closing the file when done) without needing to explicitly 
+    call a cleanup function.
+
+- with: This keyword indicates that you're entering a 
+    context where some resource (like a file or database 
+    connection) will be managed for you.
+- open("books.json", "w"): This opens the file books.json 
+    in write mode ("w"). If the file does not exist, Python 
+    will create it.
+- as file: This part assigns the opened file object to the 
+    variable file. You can then use file inside the block to 
+    work with the file.
+- json.dump(books, file, indent=4): This writes the books 
+    dictionary to the file as JSON, with an indentation of 4 
+    spaces to make it more readable.
+
+! for title, details in books_from_file.items() loop
+
+looping : It will loop through all the key-value pairs 
+    in the dictionary books_from_file until it has gone 
+    through each one. The .items() method returns these 
+    pairs (the key and the value) for each iteration.
+
+title, details : in each iteration of the loop:
+    title represents the key (the title of the book).
+    details represents the value (a dictionary containing 
+    the author, cat_pun, sea_turtle_pun, and genre for that
+    book).
+
+f in the parameter : The f in the print function is used 
+    for f-string formatting in Python. It’s a way of embedding 
+    expressions inside string literals. 
+    The syntax is:
+    f"some text {expression} more text"
+    Without the f, you would have to concatenate the 
+    strings manually like this:
+    print("Title: " + title)
+    print("  Author: " + details['author'])
+
+take_title_give_pun file --------------------------------
+
+! try ... except syntax
+*exception handling* to manage errors that might occur 
+when trying to open and load the books.json file
